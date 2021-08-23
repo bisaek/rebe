@@ -1,6 +1,6 @@
 # rebe
 
-> connect react with backend
+> connect react to a server
 
 [![NPM](https://img.shields.io/npm/v/rebe.svg)](https://www.npmjs.com/package/rebe) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 

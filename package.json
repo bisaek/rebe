@@ -1,7 +1,7 @@
 {
   "name": "rebe",
   "version": "1.0.0",
-  "description": "connect react with backend",
+  "description": "connect react to a server",
   "author": "bisaek",
   "license": "MIT",
   "repository": "bisaek/rebe",
