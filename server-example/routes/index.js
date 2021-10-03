@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     // res.render('index', { title: 'Express' });
     res.json({
         ko: 'muh',
-        gris: 'oo'
+        gris: 'noget'
     })
 });
 

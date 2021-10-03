@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import styles from './styles.module.css'
 import axios from 'axios'
+import ReactDOMServer from 'react-dom/server';
 
 // config
 let Config = {
@@ -20,7 +21,8 @@ export const config = (c = Config) => {
 export const Get = ({
   data = "", 
   url = '/', 
-  baseUrl = 0
+  baseUrl = 0,
+  children = null,
 }) => {
   const [res, setRes] = useState({})
   let output = <label>error</label>
@@ -33,8 +35,18 @@ export const Get = ({
   })
 
   // create output
-  typeof(res) == "object" ? 
-    output = Object.keys(res).map( obj => <li> {res[obj]} </li>) : output = res
+  console.log(res)
+  if (children == null) {
+    typeof(res) == "object" ? 
+      output = Object.keys(res).map( obj => <li> {res[obj]} </li>) : output = res
+  } else {
+    // custom parents
+    typeof(res) == "object" ?
+      output = Object.keys(res).map( obj => React.cloneElement(children, { children: res[obj] })) :
+      output = React.cloneElement(children, { children: res })
+  }
+  
+  
 
 
   // return output
