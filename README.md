@@ -6,8 +6,16 @@
 
 ## Install
 
+npm
+
 ```bash
 npm install --save rebe
+```
+
+yarn
+
+```bach
+yarn add rebe
 ```
 
 ## Usage
@@ -15,16 +23,25 @@ npm install --save rebe
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'rebe'
+import { Get, Post, config } from 'rebe'
 import 'rebe/dist/index.css'
+
+config({
+  sites: [
+    'http://localhost:8080',
+    'http://localhost:3000',
+    'https://google.com'
+  ]
+})
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Get url='/Example' />
   }
 }
 ```
 
 ## License
 
-MIT © [bisaek](https://github.com/bisaek)
+[MIT](https://github.com/bisaek/rebe/blob/main/LICENSE) ©
+[bisaek](https://github.com/bisaek)

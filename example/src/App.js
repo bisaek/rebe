@@ -1,10 +1,15 @@
 import React from 'react'
 
-import { ExampleComponent } from 'rebe'
+import { Get, config } from 'rebe'
 import 'rebe/dist/index.css'
 
+config({
+    url: ["http://localhost:3001"],
+    test: "heeee"
+})
+
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+    return <ul><Get url="/" / ></ul>
 }
 
 export default App
