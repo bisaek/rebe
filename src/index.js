@@ -23,13 +23,20 @@ export const Get = ({
   baseUrl = 0
 }) => {
   const [res, setRes] = useState({})
+  let output = <label>error</label>
 
-  // connect to the server
+  // connect to the api
   axios.get(Config.url[baseUrl] + url)
     .then(response => {
       if (data == "") setRes(response.data)
       else setRes(response.data[data])
   })
-  // return
-  return Object.keys(res).map( obj => <li> {res[obj]} </li>)
+
+  // create output
+  typeof(res) == "object" ? 
+    output = Object.keys(res).map( obj => <li> {res[obj]} </li>) : output = res
+
+
+  // return output
+  return output
 }

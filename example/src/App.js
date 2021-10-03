@@ -9,7 +9,7 @@ config({
 })
 
 const App = () => {
-    return <ul><Get url="/" / ></ul>
+    return <ul><Get url="/" data="gris" / ></ul>
 }
 
 export default App
