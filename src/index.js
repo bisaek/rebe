@@ -26,16 +26,18 @@ export const Get = ({
 }) => {
   const [res, setRes] = useState({})
   let output = <label>error</label>
+  let site; 
+
+  typeof(baseUrl) === 'string' ? site = baseUrl + url : site = Config.url[baseUrl] + url
 
   // connect to the api
-  axios.get(Config.url[baseUrl] + url)
+  axios.get(site)
     .then(response => {
       if (data == "") setRes(response.data)
       else setRes(response.data[data])
   })
 
   // create output
-  console.log(res)
   if (children == null) {
     typeof(res) == "object" ? 
       output = Object.keys(res).map( obj => <li> {res[obj]} </li>) : output = res
@@ -45,7 +47,6 @@ export const Get = ({
       output = Object.keys(res).map( obj => React.cloneElement(children, { children: res[obj] })) :
       output = React.cloneElement(children, { children: res })
   }
-  
   
 
 
